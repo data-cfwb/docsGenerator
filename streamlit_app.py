@@ -15,10 +15,11 @@ left.title("📄 Documents generator")
 
 
 left.markdown("""
-    This app will generate documents (`*.docx`) files based on a template (`*.docx`) and a list of variables in Excel! (`*.xlsx`).
-    The app will generate a zip file with all the documents.
+    This app will generate documents files (`*.docx`) based on a template (`*.docx`) and a list of variables in Excel format (`*.xlsx`).
 
-    If the source of variables contains a column with the name `filename`, the app will use this column to generate the filename of the document. Otherwise, the app will use the index of the row to generate the filename.
+    After processing the files, the app will generate a zip file with all the documents.
+
+    If the source of variables contains a column with the name `filename`, the app will use it to generate the filename of the document. Otherwise, the app will use the index of the row to generate the filename.
     """
 )
 
