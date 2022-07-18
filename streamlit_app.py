@@ -25,7 +25,7 @@ left.markdown("""
 
 right.image("https://raw.githubusercontent.com/data-cfwb/.github/main/logo_data_office.png", width=150)
 
-st.image("./schema.drawio.png", width=400, caption="How does it work?")
+st.image("./schema.drawio.png", width=600, caption="How does it work?")
 
 form = st.form("template_form")
 vars_file = form.file_uploader("Upload your variables file", type="xlsx")
@@ -96,5 +96,7 @@ if submit:
         )
 # align right
 st.markdown("""
-This app is a work in progress and has been made by the [Data Office](https://github.com/data-cfwb) of CFWB.
+This app is a work in progress and has been made by the [Data Office](https://github.com/data-cfwb) of CFWB. 
+
+Source code is available on [GitHub](https://github.com/data-cfwb/docsGenerator/).
 """)
