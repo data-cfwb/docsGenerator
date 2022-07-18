@@ -6,7 +6,6 @@ import pandas as pd
 import os
 import time
 from zipfile import ZipFile
-from slugify import slugify 
 
 st.set_page_config(layout="centered", page_icon="📄", page_title="Documents generator")
 
@@ -26,7 +25,7 @@ left.markdown("""
 
 right.image("https://raw.githubusercontent.com/data-cfwb/.github/main/logo_data_office.png", width=150)
 
-st.image("./schema.drawio.png", width=400, caption="How it works.")
+st.image("./schema.drawio.png", width=400, caption="How does it work?")
 
 form = st.form("template_form")
 vars_file = form.file_uploader("Upload your variables file", type="xlsx")
