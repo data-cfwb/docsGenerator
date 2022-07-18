@@ -1,10 +1,12 @@
 import pandas as pd
 from docxtpl import DocxTemplate
+from slugify import slugify
 import streamlit as st
 import pandas as pd
 import os
 import time
 from zipfile import ZipFile
+from slugify import slugify 
 
 st.set_page_config(layout="centered", page_icon="📄", page_title="Documents generator")
 
@@ -14,8 +16,12 @@ left.title("📄 Documents generator")
 
 left.markdown("""
     This app will generate documents (`*.docx`) files based on a template (`*.docx`) and a list of variables in Excel! (`*.xlsx`).
+    The app will generate a zip file with all the documents.
+
+    If the source of variables contains a column with the name `filename`, the app will use this column to generate the filename of the document. Otherwise, the app will use the index of the row to generate the filename.
     """
 )
+
 
 right.image("https://raw.githubusercontent.com/data-cfwb/.github/main/logo_data_office.png", width=150)
 
@@ -47,11 +53,20 @@ if submit:
     zip_file = './results/results.zip'
     zipObj = ZipFile(zip_file, 'w')
 
+    use_filename_column = False
+    #check if filename column exist and is unique
+    if 'filename' in df.columns and df['filename'].is_unique: 
+        use_filename_column = True
+
     for idx, context in enumerate(df.to_dict(orient='records')):
         doc = DocxTemplate("source/" + tpl_filename)
         doc.render(context)
         resulted_file = "./results/result_" + str(idx) + ".docx"
+        if use_filename_column:
+            filename = slugify(context['filename'], separator='_', lowercase=False)
+            resulted_file = "./results/" + filename + ".docx"
         doc.save(resulted_file)
+        
         # append file to zip
         zipObj.write(resulted_file)
         results.append(resulted_file)    

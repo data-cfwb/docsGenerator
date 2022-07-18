@@ -18,6 +18,10 @@ streamlit run streamlit_app.py
 
 # How does it work?
 
+This app will generate documents (*.docx) files based on a template (*.docx) and a list of variables in Excel! (*.xlsx). The app will generate a zip file with all the documents.
+
+If the source of variables contains a column with the name filename, the app will use this column to generate the filename of the document. Otherwise, the app will use the index of the row to generate the filename.
+
 ![](https://raw.githubusercontent.com/data-cfwb/docsGenerator/main/schema.drawio.png)
 
 # Demo
