@@ -14,4 +14,4 @@ streamlit run streamlit_app.py
 
 # Demo
 
-![demo](https://imgur.com/RddjA1G)
+![](https://i.imgur.com/RddjA1G.gif)
