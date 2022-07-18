@@ -22,4 +22,6 @@ streamlit run streamlit_app.py
 
 # Demo
 
-<img src="https://i.imgur.com/RddjA1G.gif"/>
+- Link to Imgur : <https://i.imgur.com/RddjA1G.gif>
+
+<img src="https://i.imgur.com/RddjA1G.gif" />
