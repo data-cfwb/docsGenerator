@@ -28,6 +28,7 @@ right.image("https://raw.githubusercontent.com/data-cfwb/.github/main/logo_data_
 st.image("./schema.drawio.png", width=600, caption="How does it work?")
 
 form = st.form("template_form")
+
 vars_file = form.file_uploader("Upload your variables file", type="xlsx")
 tpl_file = form.file_uploader("Upload your template file", type="docx")
 
