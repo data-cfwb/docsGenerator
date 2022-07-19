@@ -16,6 +16,20 @@ Then run the app:
 streamlit run streamlit_app.py
 ```
 
+# Deploy with Docker
+
+## Build
+
+```bash
+docker build --no-cache -f Dockerfile -t app:latest .
+```
+
+## Run in daemon mode
+
+```bash
+docker run -d -p 8501:8501 app:latest
+```
+
 # How does it work?
 
 This app will generate documents files (`*.docx`) based on a template (`*.docx`) and a list of variables in Excel format (`*.xlsx`).
