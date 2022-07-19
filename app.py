@@ -51,10 +51,12 @@ if submit:
     # define an object for results
     results = []
 
+    use_filename_column = False
+    my_bar = st.progress(0)
     zip_file = './results/results.zip'
+
     zipObj = ZipFile(zip_file, 'w')
 
-    use_filename_column = False
     #check if filename column exist and is unique
     if 'filename' in df.columns and df['filename'].is_unique: 
         use_filename_column = True
@@ -71,20 +73,17 @@ if submit:
         # append file to zip
         zipObj.write(resulted_file)
         results.append(resulted_file)    
-        
+        percent = (idx + 1) / len(results) * 100
+        my_bar.progress(int(percent))
+
     zipObj.close()
+
     # delete temporary files
     for result in results:
         os.remove(result)
 
     st.balloons()
     
-    my_bar = st.progress(0)
-
-    for result in range(len(results)):
-        time.sleep(0.1)
-        percent = (result + 1) / len(results) * 100
-        my_bar.progress(int(percent))
 
     st.success("🎉 Your files are ready")
     
